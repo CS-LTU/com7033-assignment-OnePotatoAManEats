@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>Registered Users</title>
 </head>
 <body>
-    <h1>User List</h1>
-
-    {%for username, created_at in users%}
-    <div>
-      <div> {{username}} </div>
-      <div> {{created_at}} </div>
-    </div>
-    {%endfor%}
- <a href="/">Return To The Main Page</a>
+    <h1>Registered Users</h1>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <tr>Last Name</th>
+            <th>Email</th>
+            <th>Registration Time</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{[ user[0] }}</td>
+                <td>{[ user[1] }}</td>
+                <td>{[ user[2] }}</td>
+                <td>{[ user[3] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+ <a href="/">Back to Registration</a>
 </body>
 </html>
