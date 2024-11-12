@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      th, td {
+          padding: 10px;
+          border: 1px solid #ddd;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+    </style>
+</head>
+<body>
+    <h1>Stroke Dataset</h1>
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Hypertension</th>
+            <th>Heart Disease</th>
+            <th>Ever Married</th>
+            <th>Work Type</th>
+            <th>Residence Type</th>
+            <th>Average Glucose Level</th>
+            <th>BMI</th>
+            <th>Smoking Status</th>
+            <th>Stroke</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for item in data %}
+            <tr>
+                <td>{{ item['id'] }}</td>
+                <td>{{ item['gender'] }}</td>
+                <td>{{ item['age'] }}</td>
+                <td>{{ item['hypertension'] }}</td>
+                <td>{{ item['heart_disease'] }}</td>
+                <td>{{ item['ever_married'] }}</td>
+                <td>{{ item['work_type'] }}</td>
+                <td>{{ item['residence_type'] }}</td>
+                <td>{{ item['avg_glucose_level'] }}</td>
+                <td>{{ item['bmi'] }}</td>
+                <td>{{ item['smoking_status'] }}</td>
+                <td>{{ item['stroke'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    <a href="/upload">Upload Another</a>
+</body>
+</html>
