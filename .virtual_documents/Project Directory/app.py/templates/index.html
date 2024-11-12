@@ -10,20 +10,23 @@
             border-collapse: collapse;
             margin-bottom: 20px;
         }
+
         table, th, td {
             border: 1px solid black;
         }
+
         th, td {
             padding: 8px;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-    <h1>Mongo DB Collections Data</h1>
+    <h1>MongoDB Collections Data</h1>
 
     {% for collection_name, collection_data in data.items() %}
         <h2>Collection: {{ collection_name }}</h2>
