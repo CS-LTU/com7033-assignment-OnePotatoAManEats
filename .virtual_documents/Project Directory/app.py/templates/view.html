@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stroke Dataset</title>
     <style>
+        /* Add CSS styling here */
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
         }
         th, td {
-            border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
@@ -21,10 +25,23 @@
 </head>
 <body>
     <h1>Stroke Dataset</h1>
-    <form method="get" action="/view">
-        <input type="text" name="search" placeholder="Search by ID..." value="{{ search_query }}">
-         <button type="submit">Search</button>
+
+    <!-- Flash message section -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="GET" action="/search">
+        <input type="text" name="query" placeholder="Search" value="{{ search_query }}">
+        <button type="submit">Search</button>
     </form>
+
     <table>
         <thead>
             <tr>
@@ -59,23 +76,33 @@
                 <td>{{ item['smoking_status'] }}</td>
                 <td>{{ item['stroke'] }}</td>
                 <td>
-                    <button>DEL</button>
-                    <button>EDIT</button>
+                    <form method="POST" action="/confirm_delete">
+                        <input type="hidden" name="id" value="{{ item['id'] }}">
+                        <button type="submit">DEL</button>
+                    </form>
+                    <form method="GET" action="/edit_patient">
+                        <input type="hidden" name="id" value="{{ item['id'] }}">
+                        <button type="submit">EDIT</button>
+                    </form>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
     <div>
         {% if page > 1 %}
-        <a href="/view?page={{ page - 1 }}&search={{ search_query }}">Previous</a>
+        <a href="?page={{ page - 1 }}">Previous</a>
         {% endif %}
-        <span>Page {{ page }} of {{ total_pages }}</span>
+        Page {{ page }} of {{ total_pages }}
         {% if page < total_pages %}
-        <a href="/view?page={{ page + 1 }}&search={{ search_query }}">Next</a>
+        <a href="?page={{ page + 1 }}">Next</a>
         {% endif %}
     </div>
-    <button onclick="window.location.href='/add_a_patient'">Add a New Patient</button>
-    <button onclick="window.location.href='/upload'">Upload Another CSV File</button>
+
+    <div>
+        <button onclick="location.href='/add_patient'">Add a New Patient</button>
+        <button onclick="location.href='/upload'">Upload Another CSV File</button>
+    </div>
 </body>
 </html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a New Patient</h1>
+
+    <form method="POST" action="/add_patient">
+        <label for="id">ID (If Left Blank, the System will Generate a Unique Number for the Patient):</label>
+        <input type="text" id="id" name="id">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="hypertension">Hypertension:</label>
+        <select id="hypertension" name="hypertension" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <label for="heart_disease">Heart Disease:</label>
+        <select id="heart_disease" name="heart_disease" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <label for="ever_married">Ever Married:</label>
+        <select id="ever_married" name="ever_married" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="work_type">Work Type:</label>
+        <select id="work_type" name="work_type" required>
+            <option value="children">With Children</option>
+            <option value="Govt_job">Government Job</option>
+            <option value="Never_worked">Never Worked</option>
+            <option value="Private">Private Sector</option>
+            <option value="Self-employed">Self-Employed</option>
+        </select>
+
+        <label for="residence_type">Residence Type:</label>
+        <select id="residence_type" name="residence_type" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select>
+
+        <label for="avg_glucose_level">Avg Glucose Level:</label>
+        <input type="number" id="avg_glucose_level" name="avg_glucose_level" step="0.01" required>
+
+        <label for="bmi">BMI:</label>
+        <input type="number" id="bmi" name="bmi" step="0.1" required>
+
+        <label for="smoking_status">Smoking Status:</label>
+        <select id="smoking_status" name="smoking_status" required>
+            <option value="formally smoked">Formally Smoked</option>
+            <option value="never smoked">Never Smoked</option>
+            <option value="smokes">Smokes</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+
+        <label for="stroke">Stroke:</label>
+        <select id="stroke" name="stroke" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <button type="submit">Add Patient</button>
+    </form>
+
+    <button onclick="location.href='/upload-csv'">Upload A CSV File</button>
+    <button onclick="location.href='/view'">Return to the Data</button>
+</body>
+</html>
