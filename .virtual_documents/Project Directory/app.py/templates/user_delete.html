@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete the following user?</p>
+    <ul>
+        <li>ID: {{ user[0] }}</li>
+        <li>First Name: {{ user[1] }}</li>
+        <li>Last Name: {{ user[2] }}</li>
+        <li>User Name: {{ user[3] }}</li>
+        <li>Email: {{ user[4] }}</li>
+        <li>Created At: {{ user[5] }}</li>
+    </ul>
+    <form action="/users_delete/{{ user[0] }}" method="POST">
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="/users">Cancel</a>
+</body>
+</html>
