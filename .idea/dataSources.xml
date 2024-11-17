@@ -8,20 +8,5 @@
       <jdbc-url>jdbc:sqlite:C:\Users\liann\PycharmProjects\University Assignments\com7033-assignment-OnePotatoAManEats\.virtual_documents\Project Directory\app.py\users.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="users1" uuid="882dbd3e-4165-4b71-906d-8f73ba272746">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\liann\PycharmProjects\University Assignments\com7033-assignment-OnePotatoAManEats\.virtual_documents\Project Directory\app.py\users1.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.45.1/org/xerial/sqlite-jdbc/3.45.1.0/sqlite-jdbc-3.45.1.0.jar</url>
-        </library>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.45.1/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar</url>
-        </library>
-      </libraries>
-    </data-source>
   </component>
 </project>

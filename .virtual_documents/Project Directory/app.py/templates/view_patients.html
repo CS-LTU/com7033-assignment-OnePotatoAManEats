@@ -76,7 +76,7 @@
                 <td>{{ item['smoking_status'] }}</td>
                 <td>{{ item['stroke'] }}</td>
                 <td>
-                    <form method="POST" action="/confirm_delete">
+                    <form method="POST" action="/confirm_delete_patient">
                         <input type="hidden" name="id" value="{{ item['id'] }}">
                         <button type="submit">DEL</button>
                     </form>
@@ -103,6 +103,7 @@
     <div>
         <button onclick="location.href='/add_patient'">Add a New Patient</button>
         <button onclick="location.href='/upload'">Upload Another CSV File</button>
+        <button onclick="location.href='/'">Return to the Homepage</button>
     </div>
 </body>
 </html>
