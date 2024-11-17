@@ -2,43 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Dataset</title>
     <style>
-      table {
-          width: 100%;
-          border-collapse: collapse;
-      }
-      th, td {
-          padding: 10px;
-          border: 1px solid #ddd;
-          text-align: left;
-      }
-      th {
-          background-color: #f2f2f2;
-      }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
     <h1>Stroke Dataset</h1>
+    <form method="get" action="/view">
+        <input type="text" name="search" placeholder="Search by ID..." value="{{ search_query }}">
+         <button type="submit">Search</button>
+    </form>
     <table>
-      <thead>
-        <tr>
-            <th>ID</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Hypertension</th>
-            <th>Heart Disease</th>
-            <th>Ever Married</th>
-            <th>Work Type</th>
-            <th>Residence Type</th>
-            <th>Average Glucose Level</th>
-            <th>BMI</th>
-            <th>Smoking Status</th>
-            <th>Stroke</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Hypertension</th>
+                <th>Heart Disease</th>
+                <th>Ever Married</th>
+                <th>Work Type</th>
+                <th>Residence Type</th>
+                <th>Avg Glucose Level</th>
+                <th>BMI</th>
+                <th>Smoking Status</th>
+                <th>Stroke</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-          {% for item in data %}
+            {% for item in data %}
             <tr>
                 <td>{{ item['id'] }}</td>
                 <td>{{ item['gender'] }}</td>
@@ -47,15 +53,29 @@
                 <td>{{ item['heart_disease'] }}</td>
                 <td>{{ item['ever_married'] }}</td>
                 <td>{{ item['work_type'] }}</td>
-                <td>{{ item['residence_type'] }}</td>
+                <td>{{ item['Residence_type'] }}</td>
                 <td>{{ item['avg_glucose_level'] }}</td>
                 <td>{{ item['bmi'] }}</td>
                 <td>{{ item['smoking_status'] }}</td>
                 <td>{{ item['stroke'] }}</td>
+                <td>
+                    <button>DEL</button>
+                    <button>EDIT</button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
-      </table>
-    <a href="/upload">Upload Another</a>
+    </table>
+    <div>
+        {% if page > 1 %}
+        <a href="/view?page={{ page - 1 }}&search={{ search_query }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        {% if page < total_pages %}
+        <a href="/view?page={{ page + 1 }}&search={{ search_query }}">Next</a>
+        {% endif %}
+    </div>
+    <button onclick="window.location.href='/add_a_patient'">Add a New Patient</button>
+    <button onclick="window.location.href='/upload'">Upload Another CSV File</button>
 </body>
 </html>
