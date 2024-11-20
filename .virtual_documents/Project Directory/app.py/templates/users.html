@@ -26,10 +26,8 @@
                 <td>{{ user[3] }}</td>
                 <td>{{ user[4] }}</td>
                 <td>
-                    <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="post">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <a href="/edit/{{ user[0] }}">Edit User</a>
+                   <a href="/user_delete/{{ user[0] }}">Delete</a>
+                <a href="/user_edit/{{ user[0] }}">Edit</a>
                 </td>
             </tr>
             {% endfor %}
