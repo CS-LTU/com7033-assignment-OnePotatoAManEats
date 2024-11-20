@@ -26,8 +26,10 @@
                 <td>{{ user[3] }}</td>
                 <td>{{ user[4] }}</td>
                 <td>
-                   <a href="/user_delete/{{ user[0] }}">Delete</a>
-                <a href="/user_edit/{{ user[0] }}">Edit</a>
+                <form action="/user_delete/{{ user[0] }}" method="post">
+                    <button type="submit">Delete</button> </form>
+                <form action="/edit_user/{{ user[0] }}" method="get" style="display:inline;">
+                    <button type="submit">Edit</button> </form>
                 </td>
             </tr>
             {% endfor %}
