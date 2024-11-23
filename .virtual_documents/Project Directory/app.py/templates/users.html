@@ -6,6 +6,19 @@
 </head>
 <body>
     <h1>List of Users</h1>
+    <div>
+
+    <!-- Flash message section -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </div>
     <table>
         <thead>
             <tr>
