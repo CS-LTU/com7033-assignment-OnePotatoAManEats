@@ -8,6 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    {% include '_navbar.html' %}
     <div class="container mt-5">
         <h2 class="text-center mb-4">Upload CSV File</h2>
         <form method="POST" enctype="multipart/form-data" action="/upload" class="bg-light p-4 border rounded">
