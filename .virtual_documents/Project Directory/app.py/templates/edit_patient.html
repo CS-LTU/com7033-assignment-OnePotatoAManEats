@@ -4,118 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Patient</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        form {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Edit Patient</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Patient</h1>
 
-    <form method="POST" action="/edit_patient">
-        <input type="hidden" name="id" value="{{ patient['id'] }}">
+        <form method="POST" action="/edit_patient" class="bg-light p-4 border rounded">
+            <input type="hidden" name="id" value="{{ patient['id'] }}">
 
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="Male" {% if patient['gender'] == 'Male' %}selected{% endif %}>Male</option>
-            <option value="Female" {% if patient['gender'] == 'Female' %}selected{% endif %}>Female</option>
-            <option value="Other" {% if patient['gender'] == 'Other' %}selected{% endif %}>Other</option>
-        </select>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="Male" {% if patient['gender'] == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if patient['gender'] == 'Female' %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if patient['gender'] == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            </div>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" value="{{ patient['age'] }}" required>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" class="form-control" value="{{ patient['age'] }}" required>
+            </div>
 
-        <label for="hypertension">Hypertension:</label>
-        <select id="hypertension" name="hypertension" required>
-            <option value="0" {% if patient['hypertension'] == 0 %}selected{% endif %}>0</option>
-            <option value="1" {% if patient['hypertension'] == 1 %}selected{% endif %}>1</option>
-        </select>
+            <div class="form-group">
+                <label for="hypertension">Hypertension:</label>
+                <select id="hypertension" name="hypertension" class="form-control" required>
+                    <option value="0" {% if patient['hypertension'] == 0 %}selected{% endif %}>0</option>
+                    <option value="1" {% if patient['hypertension'] == 1 %}selected{% endif %}>1</option>
+                </select>
+            </div>
 
-        <label for="heart_disease">Heart Disease:</label>
-        <select id="heart_disease" name="heart_disease" required>
-            <option value="0" {% if patient['heart_disease'] == 0 %}selected{% endif %}>0</option>
-            <option value="1" {% if patient['heart_disease'] == 1 %}selected{% endif %}>1</option>
-        </select>
+            <div class="form-group">
+                <label for="heart_disease">Heart Disease:</label>
+                <select id="heart_disease" name="heart_disease" class="form-control" required>
+                    <option value="0" {% if patient['heart_disease'] == 0 %}selected{% endif %}>0</option>
+                    <option value="1" {% if patient['heart_disease'] == 1 %}selected{% endif %}>1</option>
+                </select>
+            </div>
 
-        <label for="ever_married">Ever Married:</label>
-        <select id="ever_married" name="ever_married" required>
-            <option value="Yes" {% if patient['ever_married'] == 'Yes' %}selected{% endif %}>Yes</option>
-            <option value="No" {% if patient['ever_married'] == 'No' %}selected{% endif %}>No</option>
-        </select>
+            <div class="form-group">
+                <label for="ever_married">Ever Married:</label>
+                <select id="ever_married" name="ever_married" class="form-control" required>
+                    <option value="Yes" {% if patient['ever_married'] == 'Yes' %}selected{% endif %}>Yes</option>
+                    <option value="No" {% if patient['ever_married'] == 'No' %}selected{% endif %}>No</option>
+                </select>
+            </div>
 
-        <label for="work_type">Work Type:</label>
-        <select id="work_type" name="work_type" required>
-            <option value="With Children" {% if patient['work_type'] == 'With Children' %}selected{% endif %}>With Children</option>
-            <option value="Government Job" {% if patient['work_type'] == 'Government Job' %}selected{% endif %}>Government Job</option>
-            <option value="Never Worked" {% if patient['work_type'] == 'Never Worked' %}selected{% endif %}>Never Worked</option>
-            <option value="Private Sector" {% if patient['work_type'] == 'Private Sector' %}selected{% endif %}>Private Sector</option>
-            <option value="Self-Employed" {% if patient['work_type'] == 'Self-Employed' %}selected{% endif %}>Self-Employed</option>
-        </select>
+            <div class="form-group">
+                <label for="work_type">Work Type:</label>
+                <select id="work_type" name="work_type" class="form-control" required>
+                    <option value="With Children" {% if patient['work_type'] == 'With Children' %}selected{% endif %}>With Children</option>
+                    <option value="Government Job" {% if patient['work_type'] == 'Government Job' %}selected{% endif %}>Government Job</option>
+                    <option value="Never Worked" {% if patient['work_type'] == 'Never Worked' %}selected{% endif %}>Never Worked</option>
+                    <option value="Private Sector" {% if patient['work_type'] == 'Private Sector' %}selected{% endif %}>Private Sector</option>
+                    <option value="Self-Employed" {% if patient['work_type'] == 'Self-Employed' %}selected{% endif %}>Self-Employed</option>
+                </select>
+            </div>
 
-        <label for="residence_type">Residence Type:</label>
-        <select id="residence_type" name="residence_type" required>
-            <option value="Urban" {% if patient['Residence_type'] == 'Urban' %}selected{% endif %}>Urban</option>
-            <option value="Rural" {% if patient['Residence_type'] == 'Rural' %}selected{% endif %}>Rural</option>
-        </select>
+            <div class="form-group">
+                <label for="residence_type">Residence Type:</label>
+                <select id="residence_type" name="residence_type" class="form-control" required>
+                    <option value="Urban" {% if patient['Residence_type'] == 'Urban' %}selected{% endif %}>Urban</option>
+                    <option value="Rural" {% if patient['Residence_type'] == 'Rural' %}selected{% endif %}>Rural</option>
+                </select>
+            </div>
 
-        <label for="avg_glucose_level">Avg Glucose Level:</label>
-        <input type="number" id="avg_glucose_level" name="avg_glucose_level" step="0.01" value="{{ patient['avg_glucose_level'] }}" required>
+            <div class="form-group">
+                <label for="avg_glucose_level">Avg Glucose Level:</label>
+                <input type="number" id="avg_glucose_level" name="avg_glucose_level" class="form-control" step="0.01" value="{{ patient['avg_glucose_level'] }}" required>
+            </div>
 
-        <label for="bmi">BMI:</label>
-        <input type="number" id="bmi" name="bmi" step="0.1" value="{{ patient['bmi'] }}" required>
+            <div class="form-group">
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" class="form-control" step="0.1" value="{{ patient['bmi'] }}" required>
+            </div>
 
-        <label for="smoking_status">Smoking Status:</label>
-        <select id="smoking_status" name="smoking_status" required>
-            <option value="Formally Smoked" {% if patient['smoking_status'] == 'Formally Smoked' %}selected{% endif %}>Formally Smoked</option>
-            <option value="Never Smoked" {% if patient['smoking_status'] == 'Never Smoked' %}selected{% endif %}>Never Smoked</option>
-            <option value="Smokes" {% if patient['smoking_status'] == 'Smokes' %}selected{% endif %}>Smokes</option>
-            <option value="Unknown" {% if patient['smoking_status'] == 'Unknown' %}selected{% endif %}>Unknown</option>
-        </select>
+            <div class="form-group">
+                <label for="smoking_status">Smoking Status:</label>
+                <select id="smoking_status" name="smoking_status" class="form-control" required>
+                    <option value="Formally Smoked" {% if patient['smoking_status'] == 'Formally Smoked' %}selected{% endif %}>Formally Smoked</option>
+                    <option value="Never Smoked" {% if patient['smoking_status'] == 'Never Smoked' %}selected{% endif %}>Never Smoked</option>
+                    <option value="Smokes" {% if patient['smoking_status'] == 'Smokes' %}selected{% endif %}>Smokes</option>
+                    <option value="Unknown" {% if patient['smoking_status'] == 'Unknown' %}selected{% endif %}>Unknown</option>
+                </select>
+            </div>
 
-        <label for="stroke">Stroke:</label>
-        <select id="stroke" name="stroke" required>
-            <option value="0" {% if patient['stroke'] == 0 %}selected{% endif %}>0</option>
-            <option value="1" {% if patient['stroke'] == 1 %}selected{% endif %}>1</option>
-        </select>
+            <div class="form-group">
+                <label for="stroke">Stroke:</label>
+                <select id="stroke" name="stroke" class="form-control" required>
+                    <option value="0" {% if patient['stroke'] == 0 %}selected{% endif %}>0</option>
+                    <option value="1" {% if patient['stroke'] == 1 %}selected{% endif %}>1</option>
+                </select>
+            </div>
 
-        <button type="submit">Update Patient</button>
-    </form>
+            <button type="submit" class="btn btn-success btn-block">Update Patient</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

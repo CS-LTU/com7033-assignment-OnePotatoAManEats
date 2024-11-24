@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You are Now Logged In</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>You are Now Logged In</h1>
-    <div>
-        <button onclick="location.href='/view_patients'">Access The Data</button>
-        <button onclick="location.href='/' ">Return to the Homepage</button>
+    <div class="container mt-5 text-center">
+        <h1 class="mb-4">You are Now Logged In</h1>
+        <div class="btn-group" role="group" aria-label="User actions">
+            <button onclick="location.href='/view_patients'" class="btn btn-primary">Access The Data</button>
+            <button onclick="location.href='/'" class="btn btn-secondary">Return to the Homepage</button>
+        </div>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

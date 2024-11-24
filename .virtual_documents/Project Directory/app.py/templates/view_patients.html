@@ -4,106 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stroke Dataset</title>
-    <style>
-        /* Add CSS styling here */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Stroke Dataset</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Stroke Dataset</h1>
 
-    <!-- Flash message section -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+        <!-- Flash message section -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info">
+                    <ul class="list-unstyled mb-0">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
 
-    <form method="GET" action="/search">
-        <input type="text" name="query" placeholder="Search" value="{{ search_query }}">
-        <button type="submit">Search</button>
-    </form>
+        <form method="GET" action="/search" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" name="query" placeholder="Search" value="{{ search_query }}">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Gender</th>
-                <th>Age</th>
-                <th>Hypertension</th>
-                <th>Heart Disease</th>
-                <th>Ever Married</th>
-                <th>Work Type</th>
-                <th>Residence Type</th>
-                <th>Avg Glucose Level</th>
-                <th>BMI</th>
-                <th>Smoking Status</th>
-                <th>Stroke</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in data %}
-            <tr>
-                <td>{{ item['id'] }}</td>
-                <td>{{ item['gender'] }}</td>
-                <td>{{ item['age'] }}</td>
-                <td>{{ item['hypertension'] }}</td>
-                <td>{{ item['heart_disease'] }}</td>
-                <td>{{ item['ever_married'] }}</td>
-                <td>{{ item['work_type'] }}</td>
-                <td>{{ item['Residence_type'] }}</td>
-                <td>{{ item['avg_glucose_level'] }}</td>
-                <td>{{ item['bmi'] }}</td>
-                <td>{{ item['smoking_status'] }}</td>
-                <td>{{ item['stroke'] }}</td>
-                <td>
-                    <form method="POST" action="/confirm_delete_patient">
-                        <input type="hidden" name="id" value="{{ item['id'] }}">
-                        <button type="submit">DEL</button>
-                    </form>
-                    <form method="GET" action="/edit_patient">
-                        <input type="hidden" name="id" value="{{ item['id'] }}">
-                        <button type="submit">EDIT</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Hypertension</th>
+                        <th>Heart Disease</th>
+                        <th>Ever Married</th>
+                        <th>Work Type</th>
+                        <th>Residence Type</th>
+                        <th>Avg Glucose Level</th>
+                        <th>BMI</th>
+                        <th>Smoking Status</th>
+                        <th>Stroke</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{ item['id'] }}</td>
+                        <td>{{ item['gender'] }}</td>
+                        <td>{{ item['age'] }}</td>
+                        <td>{{ item['hypertension'] }}</td>
+                        <td>{{ item['heart_disease'] }}</td>
+                        <td>{{ item['ever_married'] }}</td>
+                        <td>{{ item['work_type'] }}</td>
+                        <td>{{ item['Residence_type'] }}</td>
+                        <td>{{ item['avg_glucose_level'] }}</td>
+                        <td>{{ item['bmi'] }}</td>
+                        <td>{{ item['smoking_status'] }}</td>
+                        <td>{{ item['stroke'] }}</td>
+                        <td>
+                            <form method="POST" action="/confirm_delete_patient" style="display:inline;">
+                                <input type="hidden" name="id" value="{{ item['id'] }}">
+                                <button type="submit" class="btn btn-danger btn-sm">DEL</button>
+                            </form>
+                            <form method="GET" action="/edit_patient" style="display:inline;">
+                                <input type="hidden" name="id" value="{{ item['id'] }}">
+                                <button type="submit" class="btn btn-primary btn-sm">EDIT</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <div>
-        {% if page > 1 %}
-        <a href="?page={{ page - 1 }}">Previous</a>
-        {% endif %}
-        Page {{ page }} of {{ total_pages }}
-        {% if page < total_pages %}
-        <a href="?page={{ page + 1 }}">Next</a>
-        {% endif %}
+        <div class="d-flex justify-content-between">
+            {% if page > 1 %}
+            <a href="?page={{ page - 1 }}" class="btn btn-secondary">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ total_pages }}</span>
+            {% if page < total_pages %}
+            <a href="?page={{ page + 1 }}" class="btn btn-secondary">Next</a>
+            {% endif %}
+        </div>
+
+        <div class="text-center mt-4">
+            <button onclick="location.href='/add_patient'" class="btn btn-success">Add a New Patient</button>
+            <button onclick="location.href='/upload'" class="btn btn-info">Upload Another CSV File</button>
+            <button onclick="location.href='/'" class="btn btn-secondary">Return to the Homepage</button>
+        </div>
     </div>
 
-    <div>
-        <button onclick="location.href='/add_patient'">Add a New Patient</button>
-        <button onclick="location.href='/upload'">Upload Another CSV File</button>
-        <button onclick="location.href='/'">Return to the Homepage</button>
-    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
