@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About this Dataset</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>About this Dataset</h1>
-     <img src="{{ url_for('static', filename='images/brain2.jpg') }}" alt="Brain 2" style="width:300px;"><br>
-    <p>According to the World Health Organization (WHO) stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.</p>
-     <p>This dataset is used to predict whether a patient is likely to get stroke based on the input parameters like gender, age, various diseases, and smoking status.</p>
-     <p>Each row in the data provides relevant information about the patient.</p>
-     <p>This dataset is taken from Kaggle.com</p>
-     <a href="/">Return To The Homepage</a>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="mb-4">About this Dataset</h1>
+            <img src="{{ url_for('static', filename='images/brain2.jpg') }}" alt="Brain 2" class="img-fluid mb-4" style="max-width: 300px;">
+            <p class="lead">According to the World Health Organization (WHO), stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.</p>
+            <p>This dataset is used to predict whether a patient is likely to get stroke based on the input parameters like gender, age, various diseases, and smoking status.</p>
+            <p>Each row in the data provides relevant information about the patient.</p>
+            <p>This dataset is taken from Kaggle.com</p>
+            <a href="/" class="btn btn-primary mt-4">Return To The Homepage</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

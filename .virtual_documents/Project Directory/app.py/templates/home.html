@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to The Miskatonic Teaching Hospital Stroke Prevention and Rehabilitation Centre Stroke Prediction Dataset</h1>
-    <img src="{{ url_for('static', filename='images/hospital.png') }}" alt="Home Image" style="width:300px;"><br>
-    <p>This dataset is for use by Miskatonic staff to help improve patient outcomes through identifying potential factors that may lead to a stroke in the future.</p>
-    <a href="/login">Login</a><br>
-    <a href="/register">Register for a New Account</a><br>
-    <a href="/about">About this Dataset</a><br>
-    <a href="/contact">Contact Us</a>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="mb-4">Welcome to The Miskatonic Teaching Hospital Stroke Prevention and Rehabilitation Centre Stroke Prediction Dataset</h1>
+            <img src="{{ url_for('static', filename='images/hospital.png') }}" alt="Home Image" class="img-fluid mb-4" style="max-width: 300px;">
+            <p class="lead">This dataset is for use by Miskatonic staff to help improve patient outcomes through identifying potential factors that may lead to a stroke in the future.</p>
+            <div class="mt-4">
+                <a href="/login" class="btn btn-primary mr-2">Login</a>
+                <a href="/register" class="btn btn-secondary mr-2">Register for a New Account</a>
+                <a href="/about" class="btn btn-info mr-2">About this Dataset</a>
+                <a href="/contact" class="btn btn-success">Contact Us</a>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

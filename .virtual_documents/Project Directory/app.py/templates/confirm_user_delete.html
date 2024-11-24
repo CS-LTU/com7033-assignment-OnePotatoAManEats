@@ -2,22 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Deletion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Confirm Deletion</h1>
-    <p>Are you sure you want to delete the following user?</p>
-    <ul>
-        <li>ID: {{ user[0] }}</li>
-        <li>First Name: {{ user[1] }}</li>
-        <li>Last Name: {{ user[2] }}</li>
-        <li>Username: {{ user[3] }}</li>
-        <li>Email: {{ user[4] }}</li>
-        <li>Created At: {{ user[5] }}</li>
-    </ul>
-    <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="post">
-        <button type="submit">Confirm Delete</button>
-    </form>
-    <a href="{{ url_for('list_users') }}">Cancel</a>
+    <div class="container mt-5">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h1 class="text-center">Confirm Deletion</h1>
+            </div>
+            <div class="card-body text-center">
+                <p class="lead">Are you sure you want to delete the following user?</p>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">ID: <strong>{{ user[0] }}</strong></li>
+                    <li class="list-group-item">First Name: <strong>{{ user[1] }}</strong></li>
+                    <li class="list-group-item">Last Name: <strong>{{ user[2] }}</strong></li>
+                    <li class="list-group-item">Username: <strong>{{ user[3] }}</strong></li>
+                    <li class="list-group-item">Email: <strong>{{ user[4] }}</strong></li>
+                    <li class="list-group-item">Created At: <strong>{{ user[5] }}</strong></li>
+                </ul>
+                <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="post">
+                    <button type="submit" class="btn btn-danger btn-block mb-2">Confirm Delete</button>
+                </form>
+                <a href="{{ url_for('list_users') }}" class="btn btn-secondary btn-block">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

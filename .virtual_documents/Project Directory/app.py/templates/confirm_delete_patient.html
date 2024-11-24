@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Delete</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Confirm Delete</h1>
-    <p>Are you sure you want to delete the patient with ID {{ patient_id }}?</p>
-    <form method="POST" action="/delete_patient">
-        <input type="hidden" name="id" value="{{ patient_id }}">
-        <button type="submit">Yes, Delete</button>
-    </form>
-    <button onclick="location.href='/view_patients'">Cancel</button>
+    <div class="container mt-5">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h1 class="text-center">Confirm Delete</h1>
+            </div>
+            <div class="card-body text-center">
+                <p class="lead">Are you sure you want to delete the patient with ID <strong>{{ patient_id }}</strong>?</p>
+                <form method="POST" action="/delete_patient">
+                    <input type="hidden" name="id" value="{{ patient_id }}">
+                    <button type="submit" class="btn btn-danger btn-block mb-2">Yes, Delete</button>
+                </form>
+                <button onclick="location.href='/view_patients'" class="btn btn-secondary btn-block">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
