@@ -6,21 +6,105 @@
     <title>Home</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EAF0F0; /* Background color */
+        }
+        .navbar {
+            background-color: #EAF0F0; /* Navbar background color */
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+            color: #2983B7; /* Text color */
+            font-weight: bold; /* Bold text */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EAF0F0;
+            padding: 20px;
+            margin-top: 10px; /* Adjust margin to position below navbar */
+        }
+        .logo-container img {
+            max-width: 300px; /* Adjust size as needed */
+        }
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: #2983B7;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 1.4; /* Adjust line height for spacing */
+        }
+        .header span {
+            display: block; /* Ensure block display */
+        }
+        .full-width-image {
+            width: 100%; /* Full width */
+            max-height: auto; /* Adjust height as needed */
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        }
+        .content p {
+            font-family: 'Rubik', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: white;
+            text-align: justify;
+        }
+        .content {
+            padding-bottom: 150px; /* Add padding to the bottom */
+        }
+        .buttons {
+            margin-bottom: 50px; /* Add margin to the bottom of buttons */
+        }
+        .white-box {
+            background-color: #EAF0F0;
+            color: black;
+            padding: 25px;
+            border-radius: 5px;
+            font-weight: normal; /* Normal text */
+        }
+        .custom-button {
+            background-color: #2983B7; /* Custom button color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Padding for buttons */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .custom-button:hover {
+            background-color: #2171a0; /* Slightly darker color for hover effect */
+        }
+
+        .container {
+            max-width: 90%; /* Adjust container width */
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        {% include '_navbar.html' %}
-        {% block content %}
-        {% endblock %}
+    {% include '_navbar.html' %}
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
+    </div>
+    <div class="container container-content">
+        <h1 class="header">
+            <span>WELCOME TO</span>
+            <span>THE MISKATONIC TEACHING HOSPITAL STROKE PREVENTION AND REHABILITATION CENTRE</span>
+            <span>STROKE PREDICTION DATASET</span>
+        </h1>
+        <img src="{{ url_for('static', filename='images/hospital2.jpeg') }}" alt="Home Image" class="img-fluid full-width-image">
         <div class="text-center">
-            <h1 class="mb-4">Welcome to The Miskatonic Teaching Hospital Stroke Prevention and Rehabilitation Centre Stroke Prediction Dataset</h1>
-            <img src="{{ url_for('static', filename='images/hospital.png') }}" alt="Home Image" class="img-fluid mb-4" style="max-width: 300px;">
-            <p class="lead">This dataset is for use by Miskatonic staff to help improve patient outcomes through identifying potential factors that may lead to a stroke in the future.</p>
-            <div class="mt-4">
-                <a href="/login" class="btn btn-primary mr-2">Login</a>
-                <a href="/register" class="btn btn-secondary mr-2">Register for a New Account</a>
-                <a href="/about" class="btn btn-info mr-2">About this Dataset</a>
-                <a href="/contact" class="btn btn-success">Contact Us</a>
+            <p class="lead white-box">
+                This dataset is for use by Miskatonic staff to help improve patient outcomes through identifying potential factors that may lead to a stroke in the future.
+            </p>
+            <div class="mt-4 buttons">
+                <a href="/login" class="btn custom-button mr-2">Login</a>
+                <a href="/register" class="btn custom-button mr-2">Register for a New Account</a>
+                <a href="/about" class="btn custom-button mr-2">About this Dataset</a>
+                <a href="/contact" class="btn custom-button">Contact Us</a>
             </div>
         </div>
     </div>
@@ -29,6 +113,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
