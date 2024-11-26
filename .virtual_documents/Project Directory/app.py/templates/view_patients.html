@@ -6,11 +6,83 @@
     <title>Stroke Dataset</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EAF0F0; /* Background color */
+        }
+        .navbar {
+            background-color: #EAF0F0; /* Navbar background color */
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+            color: #2983B7; /* Text color */
+            font-weight: bold; /* Bold text */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EAF0F0;
+            padding: 20px;
+            margin-top: 10px; /* Adjust margin to position below navbar */
+        }
+        .logo-container img {
+            max-width: 300px; /* Adjust size as needed */
+        }
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: #2983B7;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 1.4; /* Adjust line height for spacing */
+        }
+        .header span {
+            display: block; /* Ensure block display */
+        }
+        .content p {
+            font-family: 'Rubik', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: white;
+            text-align: justify;
+        }
+        .content {
+            padding-bottom: 150px; /* Add padding to the bottom */
+        }
+        .buttons {
+            margin-bottom: 50px; /* Add margin to the bottom of buttons */
+        }
+        .white-box {
+            background-color: #EAF0F0;
+            color: black;
+            padding: 25px;
+            border-radius: 5px;
+            font-weight: normal; /* Normal text */
+        }
+        .custom-button {
+            background-color: #2983B7; /* Custom button color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Padding for buttons */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .custom-button:hover {
+            background-color: #2171a0; /* Slightly darker color for hover effect */
+        }
+        .container {
+            max-width: 90%; /* Adjust container width */
+        }
+    </style>
 </head>
 <body>
     {% include '_navbar.html' %}
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Stroke Dataset</h1>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
+    </div>
+    <div class="container container-content">
+        <h1 class="header">STROKE DATASET</h1>
 
         <!-- Flash message section -->
         {% with messages = get_flashed_messages() %}
@@ -29,7 +101,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" name="query" placeholder="Search" value="{{ search_query }}">
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn custom-button">Search</button>
                 </div>
             </div>
         </form>
@@ -86,18 +158,18 @@
 
         <div class="d-flex justify-content-between">
             {% if page > 1 %}
-            <a href="?page={{ page - 1 }}" class="btn btn-secondary">Previous</a>
+            <a href="?page={{ page - 1 }}" class="btn custom-button">Previous</a>
             {% endif %}
             <span>Page {{ page }} of {{ total_pages }}</span>
             {% if page < total_pages %}
-            <a href="?page={{ page + 1 }}" class="btn btn-secondary">Next</a>
+            <a href="?page={{ page + 1 }}" class="btn custom-button">Next</a>
             {% endif %}
         </div>
 
         <div class="text-center mt-4">
-            <button onclick="location.href='/add_patient'" class="btn btn-success">Add a New Patient</button>
-            <button onclick="location.href='/upload'" class="btn btn-info">Upload Another CSV File</button>
-            <button onclick="location.href='/'" class="btn btn-secondary">Return to the Homepage</button>
+            <button onclick="location.href='/add_patient'" class="btn custom-button">Add a New Patient</button>
+            <button onclick="location.href='/upload'" class="btn custom-button">Upload Another CSV File</button>
+            <button onclick="location.href='/'" class="btn custom-button">Return to the Homepage</button>
         </div>
     </div>
 
