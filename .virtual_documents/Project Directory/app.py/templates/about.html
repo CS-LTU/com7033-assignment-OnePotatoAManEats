@@ -6,18 +6,108 @@
     <title>About this Dataset</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EAF0F0; /* Background color */
+        }
+        .navbar {
+            background-color: #EAF0F0; /* Navbar background color */
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+            color: #2983B7; /* Text color */
+            font-weight: bold; /* Bold text */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EAF0F0;
+            padding: 20px;
+            margin-top: 10px; /* Adjust margin to position below navbar */
+        }
+        .logo-container img {
+            max-width: 300px; /* Adjust size as needed */
+        }
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: #2983B7;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 1.4; /* Adjust line height for spacing */
+        }
+        .header span {
+            display: block; /* Ensure block display */
+        }
+        .full-width-image {
+            width: 100%; /* Full width */
+            max-height: auto; /* Adjust height as needed */
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        }
+        .content p {
+            font-family: 'Rubik', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: white;
+            text-align: justify;
+        }
+        .content {
+            padding-bottom: 150px; /* Add padding to the bottom */
+        }
+        .buttons {
+            margin-bottom: 50px; /* Add margin to the bottom of buttons */
+        }
+        .white-box {
+            background-color: #EAF0F0;
+            color: black;
+            padding: 25px;
+            border-radius: 5px;
+            font-weight: normal; /* Normal text */
+        }
+        .custom-button {
+            background-color: #2983B7; /* Custom button color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Padding for buttons */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .custom-button:hover {
+            background-color: #2171a0; /* Slightly darker color for hover effect */
+        }
+        .container {
+            max-width: 90%; /* Adjust container width */
+        }
+    </style>
 </head>
 <body>
     {% include '_navbar.html' %}
-    <div class="container mt-5">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
+    </div>
+    <div class="container container-content">
+        <h1 class="header">
+            <span>ABOUT THIS DATASET</span>
+        </h1>
+        <img src="{{ url_for('static', filename='images/brain2.jpg') }}" alt="Brain 2" class="img-fluid full-width-image">
         <div class="text-center">
-            <h1 class="mb-4">About this Dataset</h1>
-            <img src="{{ url_for('static', filename='images/brain2.jpg') }}" alt="Brain 2" class="img-fluid mb-4" style="max-width: 300px;">
-            <p class="lead">According to the World Health Organization (WHO), stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.</p>
-            <p>This dataset is used to predict whether a patient is likely to get stroke based on the input parameters like gender, age, various diseases, and smoking status.</p>
-            <p>Each row in the data provides relevant information about the patient.</p>
-            <p>This dataset is taken from Kaggle.com</p>
-            <a href="/" class="btn btn-primary mt-4">Return To The Homepage</a>
+            <p class="lead white-box">
+                According to the World Health Organization (WHO), stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.
+            </p>
+            <p class="lead white-box">
+                This dataset is used to predict whether a patient is likely to get stroke based on the input parameters like gender, age, various diseases, and smoking status.
+            </p>
+            <p class="lead white-box">
+                Each row in the data provides relevant information about the patient.
+            </p>
+            <p class="lead white-box">
+                This dataset is taken from Kaggle.com
+            </p>
+            <div class="mt-4 buttons">
+                <a href="/" class="btn custom-button">Return To The Homepage</a>
+            </div>
         </div>
     </div>
 

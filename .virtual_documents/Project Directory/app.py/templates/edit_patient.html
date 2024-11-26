@@ -6,13 +6,75 @@
     <title>Edit Patient</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EAF0F0; /* Background color */
+        }
+        .navbar {
+            background-color: #EAF0F0; /* Navbar background color */
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+            color: #2983B7; /* Text color */
+            font-weight: bold; /* Bold text */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EAF0F0;
+            padding: 20px;
+            margin-top: 10px; /* Adjust margin to position below navbar */
+        }
+        .logo-container img {
+            max-width: 300px; /* Adjust size as needed */
+        }
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: #2983B7;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 1.4; /* Adjust line height for spacing */
+        }
+        .header span {
+            display: block; /* Ensure block display */
+        }
+        .content {
+            padding-bottom: 300px; /* Add more padding to the bottom */
+        }
+        .form-container {
+            background-color: #ffffff; /* Form background color */
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        }
+        .custom-button {
+            background-color: #2983B7; /* Custom button color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Padding for buttons */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .custom-button:hover {
+            background-color: #2171a0; /* Slightly darker color for hover effect */
+        }
+        .container {
+            max-width: 90%; /* Adjust container width */
+        }
+    </style>
 </head>
 <body>
     {% include '_navbar.html' %}
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Edit Patient</h1>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
+    </div>
+    <div class="container container-content">
+        <h1 class="header">Edit Patient</h1>
 
-        <form method="POST" action="/edit_patient" class="bg-light p-4 border rounded">
+        <form method="POST" action="/edit_patient" class="form-container">
             <input type="hidden" name="id" value="{{ patient['id'] }}">
 
             <div class="form-group">
@@ -100,13 +162,12 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-success btn-block">Update Patient</button>
+            <button type="submit" class="btn custom-button btn-block">Update Patient</button>
         </form>
     </div>
-
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
