@@ -41,11 +41,13 @@
             display: block; /* Ensure block display */
         }
         .full-width-image {
-            width: 100%; /* Full width */
-            max-width: 800;
-            max-height: auto; /* Adjust height as needed */
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        width: auto; /* Maintain aspect ratio */
+        max-width: 80%; /* Adjust this value to control the width of the image */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        margin: 0 auto; /* Center the image */
+        display: block; /* Ensure the image is treated as a block element */
         }
         .content p {
             font-family: 'Rubik', sans-serif;

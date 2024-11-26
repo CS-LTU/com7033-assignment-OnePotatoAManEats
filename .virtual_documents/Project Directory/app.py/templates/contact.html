@@ -41,13 +41,14 @@
             display: block; /* Ensure block display */
         }
         .content {
-            padding-bottom: 200px; /* Padding for content */
+            padding-bottom: 700px; /* Increased padding for content */
         }
         .card {
             background-color: #ffffff; /* Card background color */
             padding: 25px;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+            margin-top: 30px; /* Add space between image and form */
         }
         .custom-button {
             background-color: #2983B7; /* Custom button color */
@@ -64,6 +65,15 @@
         .container {
             max-width: 90%; /* Adjust container width */
         }
+        .full-width-image {
+            width: auto; /* Maintain aspect ratio */
+            max-width: 50%; /* Adjust this value to control the width of the image */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover;
+            margin: 0 auto; /* Center the image */
+            display: block; /* Ensure the image is treated as a block element */
+            border-radius: 10px; /* Add rounded corners */
+        }
     </style>
 </head>
 <body>
@@ -74,7 +84,7 @@
     <div class="container container-content">
         <h1 class="header">CONTACT US</h1>
         <div class="text-center">
-            <img src="{{ url_for('static', filename='images/doctor1.jpg') }}" alt="Doctor 1" class="img-fluid mb-4" style="max-width: 300px;">
+            <img src="{{ url_for('static', filename='images/doctor4phone.jpg') }}" alt="Doctor Phone" class="img-fluid full-width-image">
         </div>
         <div class="card">
             <p class="lead text-center">We hope you find this application useful. If you have any issues or need any further support, please contact us using the form below.</p>

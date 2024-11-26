@@ -51,6 +51,9 @@
         }
         .buttons {
             margin-bottom: 50px; /* Add margin to the bottom of buttons */
+            display: flex; /* Use flexbox for button alignment */
+            justify-content: center; /* Center the buttons */
+            gap: 10px; /* Add gap between buttons */
         }
         .white-box {
             background-color: #EAF0F0;
@@ -73,6 +76,19 @@
         }
         .container {
             max-width: 90%; /* Adjust container width */
+        }
+        .container-content {
+            padding-bottom: 300px; /* Increase padding to 300px */
+        }
+        .table th {
+            background-color: #b3d9ff; /* Light blue color for the headers */
+            color: #2983B7; /* Text color for headers */
+        }
+        .table tbody tr:nth-child(odd) {
+            background-color: #e0ffff; /* White background for odd rows */
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #eaf5ff; /* Light blue background for even rows */
         }
     </style>
 </head>
@@ -130,7 +146,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="text-center mt-4">
+        <div class="text-center mt-4 buttons">
             <a href="/login" class="btn custom-button">Back to The Login Page</a>
         </div>
     </div>
@@ -138,6 +154,6 @@
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

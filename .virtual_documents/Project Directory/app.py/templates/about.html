@@ -41,10 +41,12 @@
             display: block; /* Ensure block display */
         }
         .full-width-image {
-            width: 100%; /* Full width */
-            max-height: auto; /* Adjust height as needed */
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+        width: auto; /* Maintain aspect ratio */
+        max-width: 80%; /* Adjust this value to control the width of the image */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover;
+        margin: 0 auto; /* Center the image */
+        display: block; /* Ensure the image is treated as a block element */
         }
         .content p {
             font-family: 'Rubik', sans-serif;
@@ -91,7 +93,7 @@
         <h1 class="header">
             <span>ABOUT THIS DATASET</span>
         </h1>
-        <img src="{{ url_for('static', filename='images/brain2.jpg') }}" alt="Brain 2" class="img-fluid full-width-image">
+        <img src="{{ url_for('static', filename='images/brain3.png') }}" alt="Brain 3" class="img-fluid full-width-image">
         <div class="text-center">
             <p class="lead white-box">
                 According to the World Health Organization (WHO), stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.

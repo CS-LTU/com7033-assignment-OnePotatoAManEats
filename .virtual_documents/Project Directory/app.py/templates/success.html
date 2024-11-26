@@ -37,13 +37,13 @@
             margin: 30px 0;
             line-height: 1.4; /* Adjust line height for spacing */
         }
-        .header span {
-            display: block; /* Ensure block display */
+        .header span.name {
+            text-transform: uppercase; /* Capitalize the name */
         }
         .content p {
             font-family: 'Rubik', sans-serif;
             font-weight: bold; /* Bold text */
-            color: white;
+            color: #1c7bb1;
             text-align: justify;
         }
         .content {
@@ -51,6 +51,9 @@
         }
         .buttons {
             margin-bottom: 50px; /* Add margin to the bottom of buttons */
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            gap: 10px; /* Space between buttons */
         }
         .white-box {
             background-color: #EAF0F0;
@@ -82,11 +85,10 @@
         <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
     </div>
     <div class="container container-content text-center">
-        <h1 class="header">SUCCESS! {{ first_name }}, you are now registered!</h1>
-        <img src="{{ url_for('static', filename='images/doctor2.png') }}" alt="Doctor 2" class="img-fluid mb-4" style="max-width: 300px;">
+        <h1 class="header">SUCCESS! <span class="name">{{ first_name }}</span>, YOU ARE NOW REGISTERED</h1>
         <div class="buttons">
-            <a href="/login" class="btn custom-button mb-2">Login</a><br>
-            <a href="/users" class="btn custom-button mb-2">View Registered Users</a><br>
+            <a href="/login" class="btn custom-button">Login</a>
+            <a href="/users" class="btn custom-button">View Registered Users</a>
             <a href="/" class="btn custom-button">Return To The Homepage</a>
         </div>
     </div>
