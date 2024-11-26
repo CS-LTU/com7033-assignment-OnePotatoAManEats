@@ -6,16 +6,88 @@
     <title>Success</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EAF0F0; /* Background color */
+        }
+        .navbar {
+            background-color: #EAF0F0; /* Navbar background color */
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-brand {
+            color: #2983B7; /* Text color */
+            font-weight: bold; /* Bold text */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EAF0F0;
+            padding: 20px;
+            margin-top: 10px; /* Adjust margin to position below navbar */
+        }
+        .logo-container img {
+            max-width: 300px; /* Adjust size as needed */
+        }
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: #2983B7;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 1.4; /* Adjust line height for spacing */
+        }
+        .header span {
+            display: block; /* Ensure block display */
+        }
+        .content p {
+            font-family: 'Rubik', sans-serif;
+            font-weight: bold; /* Bold text */
+            color: white;
+            text-align: justify;
+        }
+        .content {
+            padding-bottom: 150px; /* Add padding to the bottom */
+        }
+        .buttons {
+            margin-bottom: 50px; /* Add margin to the bottom of buttons */
+        }
+        .white-box {
+            background-color: #EAF0F0;
+            color: black;
+            padding: 25px;
+            border-radius: 5px;
+            font-weight: normal; /* Normal text */
+        }
+        .custom-button {
+            background-color: #2983B7; /* Custom button color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Padding for buttons */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .custom-button:hover {
+            background-color: #2171a0; /* Slightly darker color for hover effect */
+        }
+        .container {
+            max-width: 90%; /* Adjust container width */
+        }
+    </style>
 </head>
 <body>
     {% include '_navbar.html' %}
-    <div class="container mt-5 text-center">
-        <h1 class="mb-4">Success! {{ first_name }}, you are now registered!</h1>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/blue_and_whitelogo.png') }}" alt="Logo" class="img-fluid">
+    </div>
+    <div class="container container-content text-center">
+        <h1 class="header">SUCCESS! {{ first_name }}, you are now registered!</h1>
         <img src="{{ url_for('static', filename='images/doctor2.png') }}" alt="Doctor 2" class="img-fluid mb-4" style="max-width: 300px;">
-        <div>
-            <a href="/login" class="btn btn-primary mb-2">Login</a><br>
-            <a href="/users" class="btn btn-secondary mb-2">View Registered Users</a><br>
-            <a href="/" class="btn btn-secondary">Return To The Homepage</a>
+        <div class="buttons">
+            <a href="/login" class="btn custom-button mb-2">Login</a><br>
+            <a href="/users" class="btn custom-button mb-2">View Registered Users</a><br>
+            <a href="/" class="btn custom-button">Return To The Homepage</a>
         </div>
     </div>
 
